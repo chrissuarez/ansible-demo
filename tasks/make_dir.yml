@@ -17,7 +17,8 @@
     path: "{{ mountpoint }}"
     state: directory
     mode: 0775
-  become: true
+  become: yes
+  become_user: ansible
 
 - name: Recursively change ownership of mount point
   ansible.builtin.file:
