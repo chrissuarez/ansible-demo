@@ -16,10 +16,8 @@
   ansible.builtin.file:
     path: /mnt/downloads
     state: directory
-    mode: 0775
-  become: true
-  become_user: ansible
-
+    mode: '0775'
+  
     #- name: Recursively change ownership of mount point
     #  ansible.builtin.file:
     #    path: "{{ mountpoint }}"
