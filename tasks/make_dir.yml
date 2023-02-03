@@ -11,3 +11,17 @@
     recurse: yes
     owner: ansible
     group: ansible
+
+- name: Create mount point if it does not exist
+  ansible.builtin.file:
+    path: "{{ mountpoint }}"
+    state: directory
+    mode: 0775
+
+- name: Recursively change ownership of mount point
+  ansible.builtin.file:
+    path: "{{ mountpoint }}"
+    state: directory
+    recurse: yes
+    owner: ansible
+    group: ansible

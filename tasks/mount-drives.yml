@@ -1,8 +1,8 @@
-- name: Create a directory if it does not exist
-  ansible.builtin.file:
-    path: "{{ mountpoint }}"
-    state: directory
-    mode: 0775
+#- name: Create a directory if it does not exist
+#  ansible.builtin.file:
+#    path: "{{ mountpoint }}"
+#    state: directory
+#    mode: 0775
 
 - name: mount network share
   mount:
@@ -12,10 +12,10 @@
     opts: "{{ myopts }}"
     state: mounted
 
-- name: Recursively change ownership of a directory
-  ansible.builtin.file:
-    path: "{{ mountpoint }}"
-    state: directory
-    recurse: yes
-    owner: ansible
-    group: ansible
+      #- name: Recursively change ownership of a directory
+      #  ansible.builtin.file:
+      #path: "{{ mountpoint }}"
+      #state: directory
+      #recurse: yes
+      #owner: ansible
+      #group: ansible
