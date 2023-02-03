@@ -1,0 +1,20 @@
+---
+version: "3.2"
+services:
+  radarr:
+    container_name: radarr
+    image: cr.hotio.dev/hotio/radarr:latest
+    restart: unless-stopped
+    logging:
+      driver: json-file
+    network_mode: bridge
+    ports:
+      - 7878:7878
+    environment:
+      - PUID=2003
+      - PGID=2003
+      - TZ=Europe/London
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /home/downloader/star-apps/radarr/radarr:/config
+      - /mnt/downloads:/data
