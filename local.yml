@@ -13,6 +13,7 @@
     - include_vars: variables/drive_variables.yml
     - include: tasks/packages.yml
     - include: tasks/users.yml
-    - include: tasks/mount-drives.yml
+    - include: tasks/make_dir.yml
+      #- include: tasks/mount-drives.yml
       #- include: tasks/docker-star-apps.yml
     - include: tasks/cron.yml 
