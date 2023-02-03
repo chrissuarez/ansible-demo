@@ -6,5 +6,5 @@
     - name: update repositories
       apt:
         update_cache: yes
-        upgrade: "dist"
+        upgrade: "yes"
       changed_when: False   
