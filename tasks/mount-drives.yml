@@ -3,3 +3,11 @@
     path: "{{ mountpoint }}"
     state: directory
     mode: '0775'
+
+- name: mount network share
+  mount:
+    src: "{{ mynfs }}"
+    path: "{{ mountpoint }}"
+    fstype: nfs
+    opts: "{{ myopts }}"
+    state: mounted

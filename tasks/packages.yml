@@ -32,3 +32,11 @@
     url: "{{ docker_compose_url }}"
     dest: /usr/local/bin/docker-compose
     mode: u+x,g+x,o+x
+
+- name: utility present debian-like
+  ansible.builtin.apt:
+    name:
+      - nfs-common
+      - nfs4-acl-tools
+    state: present
+  when: ansible_os_family == 'Debian'
