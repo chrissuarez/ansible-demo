@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+  - name: Install Apache
+    ansible.builtin.apt:
+      name: apache2
+
+  - name: Start apache service
+    ansible.builtin.service:
+      name: apache2
+      state: started
+      enabled: true
+
+  - name: Copy index.html
+    ansible.builtin.copy:
+      src: index.html
+      dest: /var/www/html/index.html

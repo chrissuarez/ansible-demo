@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: copy SSH motd
+      ansible.builtin.copy:
+        src: motd
+        dest: /etc/motd
