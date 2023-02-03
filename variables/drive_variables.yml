@@ -1,0 +1,4 @@
+mynfs: "192.168.68.16:/volume1/downloads"
+mountpoint: "/mnt/downloads"
+permission: '0777'
+myopts: 'rw,sync'
