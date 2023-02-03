@@ -3,3 +3,11 @@
     path: /home/ansible/ansible_made_this_dir
     state: directory
     mode: '0775'
+
+- name: Recursively change ownership of a directory
+  ansible.builtin.file:
+    path: /home/ansible/ansible_made_this_dir
+    state: directory
+    recurse: yes
+    owner: ansible
+    group: ansible
