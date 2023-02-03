@@ -20,10 +20,10 @@
   become: true
   become_user: ansible
 
-- name: Recursively change ownership of mount point
-  ansible.builtin.file:
-    path: "{{ mountpoint }}"
-    state: directory
-    recurse: yes
-    owner: ansible
-    group: ansible
+    #- name: Recursively change ownership of mount point
+    #  ansible.builtin.file:
+    #    path: "{{ mountpoint }}"
+      #    state: directory
+      #    recurse: yes
+      #    owner: ansible
+      #    group: ansible
