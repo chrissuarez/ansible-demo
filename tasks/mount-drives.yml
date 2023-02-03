@@ -2,9 +2,6 @@
   ansible.builtin.file:
     path: "{{ mountpoint }}"
     state: directory
-    recurse: yes
-    owner: ansible
-    group: ansible
     mode: '775'
 
 - name: mount network share
