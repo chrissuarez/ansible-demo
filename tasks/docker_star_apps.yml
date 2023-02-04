@@ -9,7 +9,7 @@
 - name: copy docker-compose file
   copy:
     src: files/docker-compose.yml
-    dest: /home/docker-compose/docker-compose.yml
+    dest: /home/ansible/docker-compose/docker-compose.yml
     owner: ansible
     group: ansible
     mode: '0755'
