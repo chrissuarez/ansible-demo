@@ -11,10 +11,10 @@ services:
     ports:
       - 7878:7878
     environment:
-      - PUID=2003
-      - PGID=2003
+      - PUID=1001
+      - PGID=1001
       - TZ=Europe/London
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /home/downloader/star-apps/radarr/radarr:/config
+      - /home/ansible/star-apps/radarr/radarr:/config
       - /mnt/downloads:/data
