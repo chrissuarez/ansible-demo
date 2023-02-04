@@ -1,0 +1,19 @@
+- name: Create folder for docker compose   
+  file:
+    path: /home/downloader/docker-compose      
+    state: directory
+   
+- name: copy docker-compose file
+  copy:
+    src: files/docker-compose.yml
+    dest: /home/dowloader/docker-compose/docker-compose.yml
+    
+      #- name: Run docker-compose up
+      #  shell: docker-compose up
+      #   args:
+      #   chdir: /home/downloader/docker-compose
+
+- name: Create and start services
+  community.docker.docker_compose:
+    project_src: /home/dowloader/docker-compose/docker-compose.yml
+    register: output
