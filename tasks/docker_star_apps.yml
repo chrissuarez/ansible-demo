@@ -22,7 +22,7 @@
 - name: Start service
   command: docker-compose up -d
   args:
-    chdir: /home/ansible/docker-compose/docker-compose.yml
+    chdir: /home/ansible/docker-compose
 
 - name: Create Star Apps folder
   file: 
