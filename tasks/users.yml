@@ -10,3 +10,10 @@
     owner: root
     group: root
     mode: '0440'
+
+- name: Add user to docker group
+  become: yes
+  user:
+    name: ansible
+    groups: docker
+    append: yes
