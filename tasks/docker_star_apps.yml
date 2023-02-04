@@ -14,10 +14,20 @@
     group: ansible
     mode: '0755'
 
-- name: Create and start services
-  community.docker.docker_compose:
+      #- name: Create and start services
+  #  community.docker.docker_compose:
+    #    project_src: /home/ansible/docker-compose/docker-compose.yml
+      #  register: output
+
+- name: Start service
+  docker_compose:
     project_src: /home/ansible/docker-compose/docker-compose.yml
-  register: output
+    state: present
+    service: service_name
+    compose:
+      command: up
+      scale:
+        service_name: 2
 
 - name: Create Star Apps folder
   file: 
