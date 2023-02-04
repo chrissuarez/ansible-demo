@@ -19,7 +19,9 @@
 
 - name: Install Python Docker module
   pip:
-    name: docker
+    name:
+      - docker
+      - docker-compose
 
 - name: Add adminstrator to docker group
   user:
@@ -27,11 +29,11 @@
     groups: docker
     append: yes
 
-- name: Install Docker Compose
-  get_url:
-    url: "{{ docker_compose_url }}"
-    dest: /usr/local/bin/docker-compose
-    mode: u+x,g+x,o+x
+      #- name: Install Docker Compose
+      #  get_url:
+      #   url: "{{ docker_compose_url }}"
+      #    dest: /usr/local/bin/docker-compose
+      #    mode: u+x,g+x,o+x
 
 - name: utility present debian-like
   ansible.builtin.apt:
