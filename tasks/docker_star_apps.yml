@@ -13,3 +13,11 @@
     owner: ansible
     group: ansible
     mode: '0755'
+
+- name: Create Star Apps folder
+  file: 
+    path: /home/ansible/star-apps
+    state: directory
+    owner: ansible
+    group: ansible
+    mode: '0755'
