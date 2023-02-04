@@ -1,12 +1,12 @@
 - name: Create folder for docker compose   
   file:
-    path: /home/downloader/docker-compose      
+    path: /home/ansible/docker-compose      
     state: directory
    
 - name: copy docker-compose file
   copy:
     src: files/docker-compose.yml
-    dest: /home/dowloader/docker-compose/docker-compose.yml
+    dest: /home/ansible/docker-compose/docker-compose.yml
     
       #- name: Run docker-compose up
       #  shell: docker-compose up
@@ -15,5 +15,5 @@
 
 - name: Create and start services
   community.docker.docker_compose:
-    project_src: /home/dowloader/docker-compose/docker-compose.yml
+    project_src: /home/ansible/docker-compose/docker-compose.yml
     register: output
