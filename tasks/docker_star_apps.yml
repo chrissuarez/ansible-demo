@@ -2,6 +2,9 @@
   file:
     path: /home/ansible/docker-compose      
     state: directory
+    owner: ansible
+    group: ansible
+    mode: '0644'
    
 - name: copy docker-compose file
   copy:
