@@ -20,14 +20,9 @@
       #  register: output
 
 - name: Start service
-  docker_compose:
-    project_src: /home/ansible/docker-compose/docker-compose.yml
-    state: present
-    service: service_name
-    compose:
-      command: up
-      scale:
-        service_name: 2
+  command: docker-compose up -d
+  args:
+    chdir: /home/ansible/docker-compose/docker-compose.yml
 
 - name: Create Star Apps folder
   file: 
