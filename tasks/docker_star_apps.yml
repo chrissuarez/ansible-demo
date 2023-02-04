@@ -14,6 +14,11 @@
     group: ansible
     mode: '0755'
 
+- name: Create and start services
+  community.docker.docker_compose:
+    project_src: /home/ansible/docker-compose/docker-compose.yml
+  register: output
+
 - name: Create Star Apps folder
   file: 
     path: /home/ansible/star-apps
