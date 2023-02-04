@@ -10,12 +10,6 @@
   copy:
     src: files/docker-compose.yml
     dest: /home/ansible/docker-compose/docker-compose.yml
-    
-      #- name: Run docker-compose up
-      #  shell: docker-compose up
-      #   args:
-      #   chdir: /home/downloader/docker-compose
-
-- name: Create and start services
-  community.docker.docker_compose:
-    project_src: /home/ansible/docker-compose/docker-compose.yml
+    owner: ansible
+    group: ansible
+    mode: '0755'
