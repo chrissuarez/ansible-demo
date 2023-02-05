@@ -18,7 +18,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /home/ansible/star-apps/radarr:/config
-      - /mnt/downloads:/data
+      - /mnt/downloads/data:/data
 
   sonarr:
     container_name: sonarr
@@ -36,7 +36,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /home/ansible/star-apps/sonarr:/config
-      - /mnt/downloads:/data
+      - /mnt/downloads/data:/data
   
   nzbget:
     container_name: nazbget
@@ -54,5 +54,5 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /home/ansible/star-apps/nzbget:/config
-      - /mnt/downloads:/data     
+      - /mnt/downloads/data:/data     
       
