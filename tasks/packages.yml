@@ -2,7 +2,12 @@
   apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
 
 - name: Install required system packages for Docker
-  apt: name={{ docker_required_packages }} state=latest update_cache=yes
+  apt:
+    name:
+      - "{{ docker_required_packages }}"
+      - "{{ docker_packges }}"
+    state: latest
+    update_cache: true
 
 - name: Add Docker GPG key
   apt_key:
@@ -13,9 +18,6 @@
   apt_repository:
     repo: "{{ docker_repo }}"
     state: present
-
-- name: Install Docker
-  apt: name={{ docker_packges }} state=latest update_cache=yes
 
 - name: Install Python Docker module
   pip:
@@ -28,12 +30,6 @@
     name: "{{ admin_user }}"
     groups: docker
     append: yes
-
-      #- name: Install Docker Compose
-      #  get_url:
-      #   url: "{{ docker_compose_url }}"
-      #    dest: /usr/local/bin/docker-compose
-      #    mode: u+x,g+x,o+x
 
 - name: utility present debian-like
   ansible.builtin.apt:
