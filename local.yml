@@ -10,9 +10,9 @@
       changed_when: False  
   tasks:
     - include_vars: variables/docker_variables.yml
-    - include_vars: variables/drive_variables.yml
     - include: tasks/packages.yml
     - include: tasks/users.yml
+    - include_vars: variables/drive_variables.yml
     - include: tasks/make_dir.yml
     - include: tasks/mount_drives.yml
     - include: tasks/docker_star_apps.yml
