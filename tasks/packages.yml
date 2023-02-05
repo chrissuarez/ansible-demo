@@ -9,8 +9,16 @@
 - name: Install required system packages for Docker
   apt:
     name:
-      - {{ docker_required_packages }}
-      - {{ docker_packges }}
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg-agent
+      - software-properties-common
+      - python3-pip
+      - python3-setuptools
+      - docker-ce
+      - docker-ce-cl
+      - containerd.io
     state: latest
     update_cache: true
 
