@@ -53,6 +53,6 @@ services:
       - TZ=Europe/London
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /home/ansible/star-apps/nzbget/config
+      - /home/ansible/star-apps/nzbget:/config
       - /mnt/downloads:/data     
       
