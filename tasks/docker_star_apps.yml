@@ -28,6 +28,7 @@
   file: 
     path: /home/ansible/star-apps
     state: directory
+    recurse: yes
     owner: ansible
     group: ansible
     mode: '0755'
