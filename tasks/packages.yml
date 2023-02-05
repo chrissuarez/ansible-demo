@@ -1,11 +1,16 @@
+- name: Add Docker repository
+  apt_repository:
+    repo: "{{ docker_repo }}"
+    state: present
+
 - name: Install aptitude using apt
   apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
 
 - name: Install required system packages for Docker
   apt:
     name:
-      - "{{ docker_required_packages }}"
-      - "{{ docker_packges }}"
+      - {{ docker_required_packages }}
+      - {{ docker_packges }}
     state: latest
     update_cache: true
 
@@ -14,10 +19,6 @@
     url: "{{ docker_gpg_url }}"
     state: present
 
-- name: Add Docker repository
-  apt_repository:
-    repo: "{{ docker_repo }}"
-    state: present
 
 - name: Install Python Docker module
   pip:
