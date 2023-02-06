@@ -55,4 +55,17 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /home/ansible/star-apps/nzbget:/config
       - /mnt/downloads/data:/data     
-      
+  notifiarr:
+    container_name: notifiarr
+    hostname: notifiarr
+    image: golift/notifiarr
+    restart: unless-stopped
+    logging:
+      driver: json-file
+    network_mode: bridge    
+    ports:
+      - 5454:5454
+    volumes:
+      - /home/ansible/star-apps/notifiarr:/config
+      - /var/run/utmp:/var/run/utmp
+      - /etc/machine-id:/etc/machine-id    
