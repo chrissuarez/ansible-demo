@@ -68,4 +68,18 @@ services:
     volumes:
       - /home/ansible/star-apps/notifiarr:/config
       - /var/run/utmp:/var/run/utmp
-      - /etc/machine-id:/etc/machine-id    
+      - /etc/machine-id:/etc/machine-id   
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest #update the verion where necessary
+    container_name: cloudflared
+    restart: unless-stopped
+    networks:
+      - proxy
+    command: tunnel --config /home/nonroot/.cloudflared/config.yml run 6ac77ce8-90ea-4512-a966-134639055a78
+    volumes:
+      - /home/ansible/cloudflared/data:/home/nonroot/.cloudflared/
+networks:
+  proxy:
+    driver: bridge
+    external: true 
