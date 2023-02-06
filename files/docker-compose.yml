@@ -32,6 +32,7 @@ services:
     environment:
       - PUID=1001
       - PGID=1001
+      - UMASK=002
       - TZ=Europe/London
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -50,11 +51,13 @@ services:
     environment:
       - PUID=1001
       - PGID=1001
+      - UMSAK=002
       - TZ=Europe/London
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /home/ansible/star-apps/nzbget:/config
       - /mnt/downloads/data:/data     
+ 
   notifiarr:
     container_name: notifiarr
     hostname: notifiarr
