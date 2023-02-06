@@ -32,3 +32,6 @@
     owner: ansible
     group: ansible
     mode: '0755'
+
+- name: Create Coloudlfared Tunnel
+  command: docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token eyJhIjoiNzAyYzUxZWY1MDFiOWJhYWMwYjE4YjIzN2I3NTBiZTMiLCJ0IjoiZjAwYjI0YTEtMDc5Yi00ODVkLWIwMDMtMzk5OGM3OGY2ZDZjIiwicyI6IlpXVXhNV1EwTURndE1UTTBPQzAwWWpGbExXSTNNelV0WW1Kak1UQm1OV001WlRkaiJ9
