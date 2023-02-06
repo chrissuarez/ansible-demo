@@ -74,12 +74,7 @@ services:
     image: cloudflare/cloudflared:latest #update the verion where necessary
     container_name: cloudflared
     restart: unless-stopped
-    networks:
-      - proxy
-    command: tunnel --config /home/nonroot/.cloudflared/config.yml run 6ac77ce8-90ea-4512-a966-134639055a78
+    network_mode: bridge
+    command: tunnel --config /home/ansible/.cloudflared/config.yml run 6ac77ce8-90ea-4512-a966-134639055a78
     volumes:
-      - /home/ansible/cloudflared/data:/home/nonroot/.cloudflared/
-networks:
-  proxy:
-    driver: bridge
-    external: true 
+      - /home/ansible/cloudflared/data:/home/ansible/.cloudflared/ 
