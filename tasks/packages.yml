@@ -7,7 +7,6 @@
   ansible.builtin.apt:
     name: aptitude
     state: latest
-    update_cache: yes
   
 - name: Install required system packages for Docker
   ansible.builtin.apt:
