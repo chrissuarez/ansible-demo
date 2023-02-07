@@ -1,7 +1,7 @@
 - name: Add Docker repository
   apt_repository:
     repo: "{{ docker_repo }}"
-  state: present
+    state: present
 
 - name: Install aptitude using apt
   apt:
