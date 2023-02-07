@@ -1,10 +1,10 @@
-#- name: Create folder for docker compose   
-#  file:
-#    path: /home/ansible/docker-compose      
-#    state: directory
-#    owner: ansible
-#    group: ansible
-#    mode: '775'
+- name: Create folder for docker compose   
+  file:
+    path: /home/ansible/docker-compose      
+    state: directory
+    owner: ansible
+    group: ansible
+    mode: '755'
    
 - name: copy docker-compose file
   copy:
