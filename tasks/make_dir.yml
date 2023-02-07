@@ -1,6 +1,6 @@
 - name: Create mount point if it does not exist
   ansible.builtin.file:
-    path: /mnt/downloads
+    path: "{{ mountpoint }}"
     state: directory
     mode: '755'
   
