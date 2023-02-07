@@ -4,10 +4,10 @@
     state: directory
     mode: '755'
   
-- name: Recursively change ownership of mount point
-  ansible.builtin.file:
-    path: "{{ mountpoint }}"
-    state: directory
-    recurse: yes
-    owner: ansible
-    group: ansible
+#- name: Recursively change ownership of mount point
+#  ansible.builtin.file:
+#    path: "{{ mountpoint }}"
+#    state: directory
+#    recurse: yes
+#    owner: ansible
+#    group: ansible
