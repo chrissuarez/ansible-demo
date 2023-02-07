@@ -6,11 +6,11 @@
     opts: "{{ myopts }}"
     state: mounted
 
-- name: Recursively change ownership of download mount point
-  ansible.builtin.file:
-    path: "{{ mountpoint }}"
-    state: directory
-    recurse: yes
-    owner: ansible
-    group: ansible
-    mode: '755'
+#- name: Recursively change ownership of download mount point
+#  ansible.builtin.file:
+#    path: "{{ mountpoint }}"
+#    state: directory
+#    recurse: yes
+#    owner: ansible
+#    group: ansible
+#    mode: '755'
