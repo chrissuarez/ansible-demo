@@ -4,7 +4,7 @@
     state: directory
     owner: ansible
     group: ansible
-    mode: '0775'
+    mode: '775'
    
 - name: copy docker-compose file
   copy:
@@ -12,12 +12,7 @@
     dest: /home/ansible/docker-compose/docker-compose.yml
     owner: ansible
     group: ansible
-    mode: '0755'
-
-      #- name: Create and start services
-  #  community.docker.docker_compose:
-    #    project_src: /home/ansible/docker-compose/docker-compose.yml
-      #  register: output
+    mode: '755'
 
 - name: Start service
   command: docker-compose up -d
@@ -31,7 +26,7 @@
     recurse: yes
     owner: ansible
     group: ansible
-    mode: '0755'
+    mode: '755'
 
 - name: Create Coloudlfared Tunnel
   command: docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token eyJhIjoiNzAyYzUxZWY1MDFiOWJhYWMwYjE4YjIzN2I3NTBiZTMiLCJ0IjoiZjAwYjI0YTEtMDc5Yi00ODVkLWIwMDMtMzk5OGM3OGY2ZDZjIiwicyI6IlpXVXhNV1EwTURndE1UTTBPQzAwWWpGbExXSTNNelV0WW1Kak1UQm1OV001WlRkaiJ9

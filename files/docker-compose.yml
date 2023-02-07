@@ -32,7 +32,7 @@ services:
     environment:
       - PUID=1001
       - PGID=1001
-      - UMASK=002
+      - UMASK=022
       - TZ=Europe/London
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -51,7 +51,7 @@ services:
     environment:
       - PUID=1001
       - PGID=1001
-      - UMSAK=002
+      - UMSAK=022
       - TZ=Europe/London
     volumes:
       - /etc/localtime:/etc/localtime:ro
