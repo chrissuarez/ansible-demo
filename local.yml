@@ -7,12 +7,15 @@
       apt:
         update_cache: yes
         upgrade: "yes"
-      changed_when: False  
+      changed_when: False
+      
+  vars_files:
+    - variables/docker_variables.yml
+    - variables/drive_variables.yml
+    
   tasks:
-    - include_vars: variables/docker_variables.yml
     - include: tasks/packages.yml
     - include: tasks/users.yml
-    - include_vars: variables/drive_variables.yml
     - include: tasks/make_dir.yml
     - include: tasks/mount_drives.yml
     - include: tasks/docker_star_apps.yml
