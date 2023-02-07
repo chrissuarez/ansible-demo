@@ -8,14 +8,27 @@
         update_cache: yes
         upgrade: "yes"
       changed_when: False
-      
+    
+    - name: create ansible user
+      user:
+        name: ansible
+        system: yes
+    
+   - name: copy sudoers_ansible
+     copy: 
+     src: /home/ansible/files/sudoers_ansible
+     dest: /etc/sudoers.d/ansible
+     owner: root
+     group: root
+     mode: 0440
+
   vars_files:
     - variables/docker_variables.yml
     - variables/drive_variables.yml
     
   tasks:
     - include: tasks/packages.yml
-    - include: tasks/users.yml
+  # - include: tasks/users.yml
     - include: tasks/make_dir.yml
     - include: tasks/mount_drives.yml
     - include: tasks/docker_star_apps.yml
