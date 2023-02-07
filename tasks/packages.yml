@@ -38,11 +38,11 @@
       - docker
       - docker-compose
 
-- name: Add users to docker group
-  user:
-    name: "{{ item }}" 
-    groups: docker
-    append: yes
-  loop:
-    - ansible
-    - "{{ admin_user }}"
+        #- name: Add users to docker group
+        #  user:
+        #    name: "{{ item }}" 
+        #    groups: docker
+        #    append: yes
+        #  loop:
+        #    - ansible
+        #    - "{{ admin_user }}"
