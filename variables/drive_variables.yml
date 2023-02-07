@@ -1,4 +1,4 @@
 mynfs: "192.168.68.16:/volume1/downloads"
 mountpoint: "/mnt/downloads"
-permission: '777'
+permission: '755'
 myopts: 'rw,sync'
