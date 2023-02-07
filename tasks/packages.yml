@@ -4,7 +4,11 @@
     state: present
 
 - name: Install aptitude using apt
-  apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+  apt:
+    name: aptitude
+    state: latest
+  update_cache: yes
+  force_apt_get: yes
 
 - name: Install required system packages for Docker
   ansible.builtin.apt:
