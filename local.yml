@@ -15,12 +15,12 @@
         system: yes
     
     - name: copy sudoers_ansible
-       copy: 
-         src: /home/ansible/files/sudoers_ansible
-         dest: /etc/sudoers.d/ansible
-         owner: root
-         group: root
-         mode: 0440
+      copy: 
+        src: /home/ansible/files/sudoers_ansible
+        dest: /etc/sudoers.d/ansible
+        owner: root
+        group: root
+        mode: 0440
 
   vars_files:
     - variables/docker_variables.yml
