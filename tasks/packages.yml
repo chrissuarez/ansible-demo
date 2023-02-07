@@ -7,8 +7,10 @@
   apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
 
 - name: Install required system packages for Docker
-  apt:
-    name:
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
       - apt-transport-https
       - ca-certificates
       - curl
@@ -19,14 +21,15 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
-    state: latest
+      - nfs-common
+      - nfs4-acl-tools
     update_cache: true
+    when: ansible_os_family == 'Debian'
 
 - name: Add Docker GPG key
   apt_key:
     url: "{{ docker_gpg_url }}"
     state: present
-
 
 - name: Install Python Docker module
   pip:
@@ -39,11 +42,3 @@
         #    name: "{{ admin_user }}"
         #    groups: docker
         #    append: yes
-
-- name: utility present debian-like
-  ansible.builtin.apt:
-    name:
-      - nfs-common
-      - nfs4-acl-tools
-    state: present
-  when: ansible_os_family == 'Debian'
