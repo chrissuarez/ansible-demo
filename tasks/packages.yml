@@ -8,7 +8,7 @@
     name: aptitude
     state: latest
     update_cache: yes
-    force_apt_get: yes
+  force_apt_get: yes
 
 - name: Install required system packages for Docker
   ansible.builtin.apt:
