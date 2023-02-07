@@ -9,7 +9,7 @@
     dest: /etc/sudoers.d/ansible
     owner: root
     group: root
-    mode: '440'
+    mode: 440
 
       #- name: Add user to docker group
       #    name: ansible
