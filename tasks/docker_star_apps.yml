@@ -10,9 +10,9 @@
   copy:
     src: files/docker-compose.yml
     dest: /home/ansible/docker-compose/docker-compose.yml
-    owner: ansible
-    group: ansible
-    mode: '755'
+#    owner: ansible
+#    group: ansible
+#    mode: '755'
 
 - name: Start service
   command: docker-compose up -d
