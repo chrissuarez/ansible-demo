@@ -24,7 +24,7 @@ sudo usermod -aG sudo ansible
 sudo bash -c 'echo "ansible ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers'
 
 # Switch to the new user
-su - ansible
+sudo su - ansible
 
 # Generate SSH key for the user
 ssh-keygen -t rsa
