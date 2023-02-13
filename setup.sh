@@ -20,9 +20,9 @@ echo "$username:$password" | sudo chpasswd
 # Add the user to the sudo group
 #sudo usermod -aG sudo ansible
 
-sudo touch /etc/sudoers.d/ansible
+#sudo touch /etc/sudoers.d/ansible
 
-sudo echo "ansible ALL=(ALL) NOPASSWS:ALL" > /etc/sudoers.d/ansible
+sudo echo "ansible ALL=(ALL) NOPASSD:ALL" > /etc/sudoers.d/ansible
 
 sudo chown root:root /etc/sudoers.d/ansible
 
