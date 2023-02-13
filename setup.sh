@@ -22,7 +22,7 @@ echo "$username:$password" | sudo chpasswd
 
 #sudo touch /etc/sudoers.d/ansible
 
-sudo echo "ansible ALL=(ALL) NOPASSD:ALL" > /etc/sudoers.d/ansible
+sudo sh -c 'echo "ansible ALL=(ALL) NOPASSD:ALL" > /etc/sudoers.d/ansible'
 
 sudo chown root:root /etc/sudoers.d/ansible
 
