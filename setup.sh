@@ -1,35 +1,26 @@
 #!/bin/bash
 
-# Define the username and password
-username="ansible"
-password="ansible"
+# Set the username for the new Ansible user
+username=ansible
 
-# Create the user
-sudo useradd -m $username
+# Check if the Ansible user already exists
+if ! id "$username" > /dev/null 2>&1; then
+	          # If the user doesn't exist, create it
+		              sudo useradd $username
+fi
 
-# Set the password for the user
-echo "$username:$password" | sudo chpasswd
+# Check if the entry for the Ansible user already exists in the sudoers file
+entry="$username ALL=(ALL) NOPASSWD:ALL"
+if ! grep -q "$entry" /etc/sudoers; then
+	 #If it doesn't exist, add the entry
+	  sudo echo "$entry" >> /etc/sudoers
+	   echo "Entry added to the sudoers file."
+   else
+	    # If it does exist, don't add the entry
+	     echo "Entry already exists in the sudoers file."
+fi
 
 
-# Create a new user
-#sudo useradd -m ansible
-
-# Set password for the user
-#sudo passwd newuser
-
-# Add the user to the sudo group
-#sudo usermod -aG sudo ansible
-
-#sudo touch /etc/sudoers.d/ansible
-
-sudo sh -c 'echo "ansible ALL=(ALL) NOPASSD:ALL" > /etc/sudoers.d/ansible'
-
-sudo chown root:root /etc/sudoers.d/ansible
-
-sudo chmod 440 /etc/sudoers.d/ansible
-
-# Edit sudoers file to allow the user to run sudo without password
-#sudo bash -c 'echo "ansible ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers'
 
 # Switch to the new user
 sudo su - ansible
