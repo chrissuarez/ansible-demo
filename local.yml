@@ -23,13 +23,13 @@
         #mode: 0440
 
   vars_files:
-    - variables/docker_variables.yml
-    - variables/drive_variables.yml
+    #    - variables/docker_variables.yml
+    #    - variables/drive_variables.yml
     
   tasks:
-    - include: tasks/packages.yml
+    #    - include: tasks/packages.yml
   # - include: tasks/users.yml
-    - include: tasks/make_dir.yml
-    - include: tasks/mount_drives.yml
-    - include: tasks/docker_star_apps.yml
-    - include: tasks/cron.yml 
+  #    - include: tasks/make_dir.yml
+  #    - include: tasks/mount_drives.yml
+  #    - include: tasks/docker_star_apps.yml
+  #    - include: tasks/cron.yml 
