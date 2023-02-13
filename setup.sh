@@ -5,19 +5,19 @@ username=ansible
 
 # Check if the Ansible user already exists
 if ! id "$username" > /dev/null 2>&1; then
-	          # If the user doesn't exist, create it
-		              sudo useradd $username
+	# If the user doesn't exist, create it
+	sudo useradd $username
 fi
 
 # Check if the entry for the Ansible user already exists in the sudoers file
 entry="$username ALL=(ALL) NOPASSWD:ALL"
 if ! grep -q "$entry" /etc/sudoers; then
-	 #If it doesn't exist, add the entry
-	  sudo echo "$entry" >> /etc/sudoers
-	   echo "Entry added to the sudoers file."
-   else
-	    # If it does exist, don't add the entry
-	     echo "Entry already exists in the sudoers file."
+       	#If it doesn't exist, add the entry
+      	sudo echo "$entry" >> /etc/sudoers
+	echo "Entry added to the sudoers file."
+else
+    	# If it does exist, don't add the entry
+   	echo "Entry already exists in the sudoers file."
 fi
 
 
