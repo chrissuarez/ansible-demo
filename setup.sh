@@ -1,7 +1,18 @@
 #!/bin/bash
 
+# Define the username and password
+username="ansible"
+password="ansible"
+
+# Create the user
+sudo useradd -m $username
+
+# Set the password for the user
+echo "$username:$password" | sudo chpasswd
+
+
 # Create a new user
-sudo useradd -m ansible
+#sudo useradd -m ansible
 
 # Set password for the user
 #sudo passwd newuser
