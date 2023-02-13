@@ -21,7 +21,7 @@ echo "$username:$password" | sudo chpasswd
 sudo usermod -aG sudo ansible
 
 # Edit sudoers file to allow the user to run sudo without password
-sudo bash -c 'echo "newuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers'
+sudo bash -c 'echo "ansible ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers'
 
 # Switch to the new user
 su - ansible
