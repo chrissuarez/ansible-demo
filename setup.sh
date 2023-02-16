@@ -20,6 +20,8 @@ else
    	echo "Entry already exists in the sudoers file."
 fi
 
+# Set a password for the new user
+sudo passwd $username
 
 # Switch to the new user
 su - ansible <<EOF
