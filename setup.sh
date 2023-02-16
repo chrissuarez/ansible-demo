@@ -6,7 +6,7 @@ username=ansible
 # Check if the Ansible user already exists
 if ! id "$username" > /dev/null 2>&1; then
 	# If the user doesn't exist, create it
-	sudo useradd -m $username
+	sudo adduser -m $username
 fi
 
 # Check if the entry for the Ansible user already exists in the sudoers file
