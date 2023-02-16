@@ -2,6 +2,7 @@
   group:
     name: downloader
     state: present
+    gid: 1005
 
 # name: ansible
 - name: Add users to Docker group

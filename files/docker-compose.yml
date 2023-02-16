@@ -7,12 +7,13 @@ services:
     restart: unless-stopped
     logging:
       driver: json-file
-    network_mode: bridge
+    networks: 
+      - docker_bridge
     ports:
       - 7878:7878
     environment:
       - PUID=1001
-      - PGID=1001
+      - PGID=1005
       - UMASK=002
       - TZ=Europe/London
     volumes:
@@ -26,12 +27,13 @@ services:
     restart: unless-stopped
     logging:
       driver: json-file
-    network_mode: bridge
+    networks:
+      - docker_bridge
     ports:
       - 8989:8989
     environment:
       - PUID=1001
-      - PGID=1001
+      - PGID=1005
       - UMASK=022
       - TZ=Europe/London
     volumes:
@@ -45,12 +47,13 @@ services:
     restart: unless-stopped
     logging:
       driver: json-file
-    network_mode: bridge
+    networks:
+      - docker_bridge
     ports:
       - 6789:6789
     environment:
       - PUID=1001
-      - PGID=1001
+      - PGID=1005
       - UMSAK=022
       - TZ=Europe/London
     volumes:
@@ -65,7 +68,8 @@ services:
     restart: unless-stopped
     logging:
       driver: json-file
-    network_mode: bridge    
+    networks:
+      - docker_bridge    
     ports:
       - 5454:5454
     volumes:
@@ -73,3 +77,6 @@ services:
       - /var/run/utmp:/var/run/utmp
       - /etc/machine-id:/etc/machine-id   
 
+networks:
+  docker_bridge:
+    driver: bridge
