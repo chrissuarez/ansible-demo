@@ -28,7 +28,7 @@ sudo passwd $username
 sudo usermod -aG sudo $username
 
 # Copy files from /etc/skel to users home directory
-sudo cp -r /etc/skel/ /home/$username
+sudo cp -r /etc/skel/. /home/$username/
 
 # Set ownership of the copied files to the new user
 sudo chown -R $username:$username /home/$username
