@@ -20,20 +20,8 @@ else
    	echo "Entry already exists in the sudoers file."
 fi
 
-# Set a password for the new user
-# sudo passwd $username
-
-
 # Add the user to the sudo group
 sudo usermod -aG sudo $username
-
-# Copy files from /etc/skel to users home directory
-#echo "Copying files from /etc/skel to /home/$username ..."
-#sudo cp -r /etc/skel/. /home/$username/
-#echo "Done copying files."
-
-# Set ownership of the copied files to the new user
-#sudo chown -R $username:$username /home/$username
 
 # Generate SSH key for the user
 sudo -u $username ssh-keygen -t rsa
@@ -41,10 +29,9 @@ sudo -u $username ssh-keygen -t rsa
 # Share the public key with the server
 sudo -u $username ssh-copy-id 192.168.68.103
 
-# Switch to new user
-sudo su - $username
+# Install Ansible as the Ansible user
+sudo -u $username sh -c "sudo apt update && sudo apt install ansible"
 
-sudo apt update
-sudo apt install ansible -y
+# Run ansible-pull as the Ansible user
+sudo -u $username ansible-pull -U https://github.com/chrissuarez/ansible-demo.git
 
-ansible-pull -U https://github.com/chrissuarez/ansible-demo.git
