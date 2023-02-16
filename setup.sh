@@ -43,3 +43,7 @@ sudo -u $username ssh-copy-id 192.168.68.103
 
 # Switch to new user
 sudo su - $username
+
+sudo apt install ansible
+
+ansible-pull -U https://github.com/chrissuarez/ansible-demo.git
