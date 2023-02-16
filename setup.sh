@@ -21,12 +21,12 @@ else
 fi
 
 
-
 # Switch to the new user
-sudo su - ansible
+su - ansible <<EOF
 
 # Generate SSH key for the user
 ssh-keygen -t rsa
 
 # Share the public key with the server
 ssh-copy-id 192.168.68.103
+EOF
