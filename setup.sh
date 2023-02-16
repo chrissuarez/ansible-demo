@@ -21,19 +21,19 @@ else
 fi
 
 # Set a password for the new user
-sudo passwd $username
+# sudo passwd $username
 
 
 # Add the user to the sudo group
 sudo usermod -aG sudo $username
 
 # Copy files from /etc/skel to users home directory
-echo "Copying files from /etc/skel to /home/$username ..."
-sudo cp -r /etc/skel/. /home/$username/
-echo "Done copying files."
+#echo "Copying files from /etc/skel to /home/$username ..."
+#sudo cp -r /etc/skel/. /home/$username/
+#echo "Done copying files."
 
 # Set ownership of the copied files to the new user
-sudo chown -R $username:$username /home/$username
+#sudo chown -R $username:$username /home/$username
 
 # Generate SSH key for the user
 sudo -u $username ssh-keygen -t rsa
