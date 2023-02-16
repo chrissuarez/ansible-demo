@@ -41,3 +41,5 @@ sudo -u $username ssh-keygen -t rsa
 # Share the public key with the server
 sudo -u $username ssh-copy-id 192.168.68.103
 
+# Switch to new user
+sudo su - $username
