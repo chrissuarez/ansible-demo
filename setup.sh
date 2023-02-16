@@ -28,11 +28,11 @@ sudo passwd $username
 sudo usermod -aG sudo $username
 
 # Switch to the new user
-su - ansible <<EOF
+#su - ansible <<EOF
 
 # Generate SSH key for the user
-ssh-keygen -t rsa
+sudo -u $username ssh-keygen -t rsa
 
 # Share the public key with the server
-ssh-copy-id 192.168.68.103
-EOF
+sudo -u $username ssh-copy-id 192.168.68.103
+
