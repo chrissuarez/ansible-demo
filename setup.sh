@@ -47,4 +47,3 @@ sudo su - $username
 sudo apt update
 sudo apt install ansible -y
 
-ansible-pull -U https://github.com/chrissuarez/ansible-demo.git
