@@ -10,7 +10,7 @@ if ! id "$username" > /dev/null 2>&1; then
 fi
 
 # Check if the entry for the Ansible user already exists in the sudoers file
-entry="$username ALL=(ALL) NOPASSWD:ALL"
+entry="$username ALL=(ALL) NOPASSWD: ALL"
 if ! sudo grep -q "$entry" /etc/sudoers; then
        	#If it doesn't exist, add the entry
       	echo "$entry" | sudo tee -a /etc/sudoers > /dev/null
