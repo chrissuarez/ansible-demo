@@ -23,6 +23,10 @@ fi
 # Set a password for the new user
 sudo passwd $username
 
+
+# Add the user to the sudo group
+sudo usermod -aG sudo $username
+
 # Switch to the new user
 su - ansible <<EOF
 
