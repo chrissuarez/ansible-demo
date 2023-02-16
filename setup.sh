@@ -27,8 +27,11 @@ sudo passwd $username
 # Add the user to the sudo group
 sudo usermod -aG sudo $username
 
-# Switch to the new user
-#su - ansible <<EOF
+# Copy files from /etc/skel to users home directory
+sudo cp -r /etc/skel/. /home/$username
+
+# Set ownership of the copied files to the new user
+sudo chown -R $username:$username /home/$username
 
 # Generate SSH key for the user
 sudo -u $username ssh-keygen -t rsa
