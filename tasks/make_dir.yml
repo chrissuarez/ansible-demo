@@ -3,6 +3,9 @@
     path: "{{ mountpoint }}"
     state: directory
     mode: '755'
+    owner: chris
+    group: downloader
+    recurse: yes
   
 #- name: Recursively change ownership of mount point
 #  ansible.builtin.file:

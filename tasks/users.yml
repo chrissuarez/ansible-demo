@@ -1,21 +1,9 @@
-- name: create ansible user
-  user:
-    name: ansible
-    system: yes
+- name: create downloader group
+  group:
+    name: downloader
+    state: present
 
-- name: copy sudoers_ansible
-  copy:
-    src: files/sudoers_ansible
-    dest: /etc/sudoers.d/ansible
-    owner: root
-    group: root
-    mode: 0440
-
-      #- name: Add user to docker group
-      #    name: ansible
-      #    groups: docker
-      #    append: yes
-
+# name: ansible
 - name: Add users to Docker group
   user:
     name: "{{ item }}"
