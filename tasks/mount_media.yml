@@ -1,0 +1,16 @@
+- name: Create mount point if it does not exist
+  ansible.builtin.file:
+    path: "{{ mountpoint }}"
+    state: directory
+    mode: '755'
+    owner: chris
+    group: downloader
+    recurse: yes
+
+- name: mount network share
+  mount:
+    src: "{{ mynfs }}"
+    path: "{{ mountpoint }}"
+    fstype: nfs
+    opts: "{{ myopts }}"
+    state: mounted

@@ -15,8 +15,10 @@
     
   tasks:
     - include: tasks/packages.yml
-    - include: tasks/users.yml
-    - include: tasks/make_dir.yml
-    - include: tasks/mount_drives.yml
-    - include: tasks/docker_star_apps.yml
+    - include: tasks/mount_media.yml
+    - include: tasks/install_starr_apps.yml
+      #    - include: tasks/users.yml
+      #    - include: tasks/make_dir.yml
+      #    - include: tasks/mount_drives.yml
+      #    - include: tasks/docker_star_apps.yml
   #    - include: tasks/cron.yml 
