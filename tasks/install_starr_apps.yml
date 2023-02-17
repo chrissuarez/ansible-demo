@@ -33,12 +33,12 @@
 
 - name: Create Star Apps folder
   file: 
-  path: /home/ansible/star-apps
-  state: directory
-  recurse: yes
-  owner: ansible
-  group: downloader
-  mode: 755
+    path: /home/ansible/star-apps
+    state: directory
+    recurse: yes
+    owner: ansible
+    group: downloader
+    mode: 755
 
     #- name: copy Starr App Config files
     #  copy:
