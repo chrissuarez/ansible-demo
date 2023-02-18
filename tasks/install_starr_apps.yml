@@ -1,8 +1,8 @@
-- name: Create downloader group
-  group:
-    name: downloader
-    state: present
-    gid: 1005
+#- name: Create downloader group
+#  group:
+#    name: downloader
+#    state: present
+#    gid: 1005
 
 - name: Add users to the Docker group
   user:
@@ -29,7 +29,7 @@
     dest: /home/ansible/docker-compose/docker-compose.yml
     owner: ansible
     group: ansible
-    mode: 644
+    mode: 664
 
 - name: Create Star Apps folder
   file: 
@@ -38,12 +38,19 @@
     recurse: yes
     owner: ansible
     group: downloader
-    mode: 755
+    mode: 775
 
-    #- name: copy Starr App Config files
-    #  copy:
-    #    src: files/docker-compose.yml
-    #    dest: /home/ansible/docker-compose/docker-compose.yml
-    #    owner: ansible
-    #    group: downloader
-    #    mode: 644
+- name: Copy Starr App Config Files
+  copy:
+    src: /files/star-apps/*
+    dest: /home/ansible/star-apps/
+    owner: ansible
+    group: downloader
+    mode: 775
+
+- name: Start service
+  command: docker-compose up -d
+  args:
+    chdir: /home/ansible/docker-compose
+
+

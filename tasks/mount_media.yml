@@ -1,8 +1,14 @@
+- name: Create downloader group
+  group:
+    name: downloader
+    state: present
+    gid: 1005
+
 - name: Create mount point if it does not exist
   ansible.builtin.file:
     path: "{{ mountpoint }}"
     state: directory
-    mode: '755'
+    mode: '775'
     owner: chris
     group: downloader
     recurse: yes
