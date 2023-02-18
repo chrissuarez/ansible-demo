@@ -42,7 +42,7 @@
 
 - name: Copy Starr App Config Files
   copy:
-    src: /files/star-apps/
+    src: files/star-apps/
     dest: /home/ansible/star-apps/
     owner: ansible
     group: downloader
