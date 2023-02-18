@@ -47,6 +47,7 @@
     owner: ansible
     group: downloader
     mode: '775'
+    remote_src: yes
 
 - name: Start service
   command: docker-compose up -d
