@@ -21,7 +21,7 @@
     state: directory 
     owner: ansible
     group: ansible
-    mode: 755
+    mode: '755'
 
 - name: copy docker-compose file
   copy:
@@ -29,7 +29,7 @@
     dest: /home/ansible/docker-compose/docker-compose.yml
     owner: ansible
     group: ansible
-    mode: 664
+    mode: '664'
 
 - name: Create Star Apps folder
   file: 
@@ -38,7 +38,7 @@
     recurse: yes
     owner: ansible
     group: downloader
-    mode: 775
+    mode: '775'
 
 - name: Copy Starr App Config Files
   copy:
@@ -46,7 +46,7 @@
     dest: /home/ansible/star-apps/
     owner: ansible
     group: downloader
-    mode: 775
+    mode: '775'
 
 - name: Start service
   command: docker-compose up -d
