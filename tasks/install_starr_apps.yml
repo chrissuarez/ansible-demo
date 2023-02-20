@@ -49,19 +49,28 @@
     mode: '775'
     remote_src: true
 
-      #- name: Include file to decrypt
-      #  include_vars: /home/ansible/star-apps/radarr/config.xml
-
 - name: Decrypt Radarr Config
   shell: ansible-vault decrypt --vault-password-file /home/ansible/.vault_key /home/ansible/star-apps/radarr/config.xml
-    #  no_log: True
+  no_log: True
 
-- name: Update permissions on radarr config
+- name: Decrypt Sonarr Config
+  shell: ansible-vault decrypt --vault-password-file /home/ansible/.vault_key /home/ansible/star-apps/sonarr/config.xml
+  no_log: True
+
+- name: Decrypt Radarr Config
+  shell: ansible-vault decrypt --vault-password-file /home/ansible/.vault_key /home/ansible/star-apps/sabnzbd/sabnzbd.ini
+  no_log: True
+
+- name: Update permissions on star app files
   file:
-    path: /home/ansible/star-apps/radarr/config.xml
+    path: /home/ansible/star-apps "{{ items }}"
     owner: ansible
     group: downloader
     mode: '664'
+  loop:
+    - /radarr/config.xml
+    - /sonarr/config.xml
+    - /sabnzbd/sabnzbd.ini
 
 
 - name: Start service
