@@ -49,8 +49,8 @@
     mode: '775'
     remote_src: true
 
-- name: Include file to decrypt
-  include_vars: /home/ansible/star-apps/radarr/config.xml
+      #- name: Include file to decrypt
+      #  include_vars: /home/ansible/star-apps/radarr/config.xml
 
 - name: Decrypt Radarr Config
   shell: ansible-vault decrypt /home/ansible/star-apps/radarr/config.xml
