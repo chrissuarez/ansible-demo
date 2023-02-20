@@ -56,6 +56,14 @@
   shell: ansible-vault decrypt --vault-password-file /home/ansible/.vault_key /home/ansible/star-apps/radarr/config.xml
     #  no_log: True
 
+- name: Update permissions on radarr config
+  file:
+    path: /home/ansible/star-apps/radarr/config.xml
+    owner: ansible
+    group: downloader
+    mode: '664'
+
+
 - name: Start service
   command: docker-compose up -d
   args:
