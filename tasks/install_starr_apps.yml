@@ -40,6 +40,10 @@
     group: downloader
     mode: '775'
 
+- name: Decrypt Radarr Config
+  shell: ansible-vault decrypt ./files/star-apps/radarr/confix.xml
+  no_log: True
+
 - name: Copy Starr App Config Files
   copy:
     src: files/star-apps/
