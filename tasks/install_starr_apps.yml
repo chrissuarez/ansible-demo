@@ -53,7 +53,7 @@
       #  include_vars: /home/ansible/star-apps/radarr/config.xml
 
 - name: Decrypt Radarr Config
-  shell: ansible-vault decrypt --vault-password-file ~/.vault_key /home/ansible/star-apps/radarr/config.xml
+  shell: ansible-vault decrypt --vault-password-file /home/ansible/.vault_key /home/ansible/star-apps/radarr/config.xml
     #  no_log: True
 
 - name: Start service
