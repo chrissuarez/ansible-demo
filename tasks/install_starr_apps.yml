@@ -63,7 +63,7 @@
 
 - name: Update permissions on star app files
   file:
-    path: /home/ansible/star-apps "{{ items }}"
+    path: "/home/ansible/star-apps/{{ item }}"
     owner: ansible
     group: downloader
     mode: '664'
