@@ -50,11 +50,11 @@
     remote_src: true
 
 - name: Include file to decrypt
-    include_vars: /home/ansible/star-apps/radarr/config.xml
+  include_vars: /home/ansible/star-apps/radarr/config.xml
 
 - name: Decrypt Radarr Config
-    shell: ansible-vault decrypt /home/ansible/star-apps/radarr/config.xml
-        no_log: True
+  shell: ansible-vault decrypt /home/ansible/star-apps/radarr/config.xml
+  no_log: True
 
 - name: Start service
   command: docker-compose up -d
