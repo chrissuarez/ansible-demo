@@ -51,7 +51,7 @@
 
 - name: Decrypt Star Config Files
   shell: ansible-vault decrypt --vault-password-file /home/ansible/.vault_key "{{ item }}"
-  no_log: True
+    #  no_log: True
   loop:
     - /home/ansible/star-apps/radarr/radarr_config.xml
     - /home/ansible/star-apps/sonarr/sonarr_config.xml
