@@ -82,10 +82,10 @@
     owner: ansible
     group: downloader
     mode: '644'
-    loop:
-      - /home/ansible/star-apps/radarr/config.xml
-      - /home/ansible/star-apps/sonarr/config.xml
-      - /home/ansible/star-apps/sabnzbd/sabnzbd.ini
+  loop:
+    - /home/ansible/star-apps/radarr/config.xml
+    - /home/ansible/star-apps/sonarr/config.xml
+    - /home/ansible/star-apps/sabnzbd/sabnzbd.ini
 
 - name: Start service
   command: docker-compose up -d
