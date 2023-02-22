@@ -65,20 +65,19 @@
       #  shell: ansible-vault decrypt --vault-password-file /home/ansible/.vault_key /home/ansible/star-apps/sabnzbd/sabnzbd.ini
       #  no_log: True
 
-- name: Rename Star Config files
-  file:
+- name: Copy Star app configs
+  copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
-    state: hard
-    force: yes
+    mode: '644'
   loop:
     - { src: '/home/ansible/star-apps/radarr/radarr_config.xml', dest: '/home/ansible/star-apps/radarr/config.xml' }
     - { src: '/home/ansible/star-apps/sonarr/sonarr_config.xml', dest: '/home/ansible/star-apps/sonarr/config.xml' }
     - { src: '/home/ansible/star-apps/sabnzbd/sabnzbd_config.ini', dest: '/home/ansible/star-apps/sabnzbd/sabnzbd.ini' }
 
-- name: Update permissions on star app files
+- name: Update permissions on Star app files
   file:
-    src: "{{ item }}"
+    path: "{{ item }}"
     owner: ansible
     group: downloader
     mode: '644'
