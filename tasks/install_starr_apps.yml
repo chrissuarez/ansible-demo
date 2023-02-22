@@ -69,6 +69,7 @@
   file:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
+    state: hard
   loop:
     - { src: '/home/ansible/star-apps/radarr/radarr_config.xml', dest: '/home/ansible/star-apps/radarr/config.xml' }
     - { src: '/home/ansible/star-apps/sonarr/sonarr_config.xml', dest: '/home/ansible/star-apps/sonarr/config.xml' }
